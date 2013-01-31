@@ -1,0 +1,3 @@
+<div id="current-installation">
+    <p><?php echo $this->text; ?></p>
+</div>
