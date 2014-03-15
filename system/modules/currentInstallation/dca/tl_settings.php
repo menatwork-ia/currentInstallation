@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * @copyright  MEN AT WORK 2013 
+ * @copyright  MEN AT WORK 2014 
  * @package    currentInstallation
  * @license    GNU/LGPL 
  * @filesource
@@ -21,37 +21,42 @@ $GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] = implode(";", $arrPale
 /**
  * Field
  */
-$GLOBALS['TL_DCA']['tl_settings']['fields']['currentInstallation'] = array(
+$GLOBALS['TL_DCA']['tl_settings']['fields']['currentInstallation'] = array
+(
     'label'     => &$GLOBALS['TL_LANG']['tl_settings']['currentInstallation'],
     'exclude'   => true,
     'inputType' => 'multiColumnWizard',
-    'eval'      => array(
-        'columnFields' => array(
-            'language' => array(
+    'eval'      => array
+    (
+        'columnFields' => array
+        (
+            'language' => array
+            (
                 'label'     => &$GLOBALS['TL_LANG']['tl_user']['language'],
                 'default'   => $GLOBALS['TL_LANGUAGE'],
                 'exclude'   => true,
                 'filter'    => true,
                 'inputType' => 'select',
                 'options'   => $this->getBackendLanguages(),
-                'eval'      => array(
+                'eval'      => array
+                (
                     'style'        => 'width:160px; margin-right:5px;',
                     'valign'       => 'top'
                 )
             ),
-            'text' => array(
+            'text' => array
+            (
                 'label'     => &$GLOBALS['TL_LANG']['tl_settings']['currentInstallation'],
                 'inputType' => 'textarea',
-                'eval'      => array(
+                'eval'      => array
+                (
                     'mandatory'      => true,
                     'style'          => 'width:425px; height:50px;',
                     'allowHtml'      => true,
                     'preserveTags'   => true,
                     'decodeEntities' => true
                 )
-            ),
+            )
         )
     )
 );
-
-?>

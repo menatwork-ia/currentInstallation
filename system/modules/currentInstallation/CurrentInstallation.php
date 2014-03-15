@@ -3,11 +3,12 @@
 /**
  * Contao Open Source CMS
  *
- * @copyright  MEN AT WORK 2013 
+ * @copyright  MEN AT WORK 2014 
  * @package    currentInstallation
  * @license    GNU/LGPL 
  * @filesource
  */
+
 class CurrentInstallation extends Backend
 {
 
@@ -43,7 +44,7 @@ class CurrentInstallation extends Backend
                 $objTemplate       = new BackendTemplate('be_current_installation');
                 $objTemplate->text = $strText;
 
-                $strContent = preg_replace("/<div.*id=\"header\">/", $objTemplate->parse() . "\n$0", $strContent, 1);
+                $strContent = preg_replace('~</div>\s*<div.+id="container"~', $objTemplate->parse()."\n$0", $strContent, 1);
             }
         }
 
@@ -51,5 +52,3 @@ class CurrentInstallation extends Backend
     }
 
 }
-
-?>
