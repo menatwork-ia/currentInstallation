@@ -15,7 +15,7 @@ $this->loadLanguageFile('tl_user');
  * Palettes
  */
 $arrPalettes = explode(";", $GLOBALS['TL_DCA']['tl_settings']['palettes']['default']);
-$arrPalettes = array_merge($arrPalettes, array('{currentInstallation_legend},currentInstallation'));
+$arrPalettes = array_merge($arrPalettes, array('{currentInstallation_legend},currentInstallation,currentInstallationForegroundColor,currentInstallationBackgroundColor'));
 $GLOBALS['TL_DCA']['tl_settings']['palettes']['default'] = implode(";", $arrPalettes);
 
 /**
@@ -58,5 +58,33 @@ $GLOBALS['TL_DCA']['tl_settings']['fields']['currentInstallation'] = array
                 )
             )
         )
+    )
+);
+
+$GLOBALS['TL_DCA']['tl_settings']['fields']['currentInstallationForegroundColor'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_settings']['currentInstallationForegroundColor'],
+    'inputType' => 'text',
+    'eval'      => array
+    (
+        'maxlength'      => 6,
+        'colorpicker'    => true,
+        'isHexColor'     => true,
+        'decodeEntities' => true,
+        'tl_class'       => 'w50 wizard',
+    )
+);
+
+$GLOBALS['TL_DCA']['tl_settings']['fields']['currentInstallationBackgroundColor'] = array
+(
+    'label'     => &$GLOBALS['TL_LANG']['tl_settings']['currentInstallationBackgroundColor'],
+    'inputType' => 'text',
+    'eval'      => array
+    (
+        'maxlength'      => 6,
+        'colorpicker'    => true,
+        'isHexColor'     => true,
+        'decodeEntities' => true,
+        'tl_class'       => 'w50 wizard',
     )
 );

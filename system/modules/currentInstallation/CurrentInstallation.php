@@ -21,7 +21,9 @@ class CurrentInstallation extends Backend
     {
         if ($strTemplate == 'be_main')
         {
-            $strText = '';
+            $strText       = '';
+            $strForeground = $GLOBALS['TL_CONFIG']['currentInstallationForegroundColor'];
+            $strBackground = $GLOBALS['TL_CONFIG']['currentInstallationBackgroundColor'];
 
             foreach ((array) deserialize($GLOBALS['TL_CONFIG']['currentInstallation']) as $value)
             {
@@ -41,8 +43,39 @@ class CurrentInstallation extends Backend
 
             if (!empty($strText))
             {
-                $objTemplate       = new BackendTemplate('be_current_installation');
-                $objTemplate->text = $strText;
+                $objTemplate             = new BackendTemplate('be_current_installation');
+                $objTemplate->text       = $strText;
+
+                $style = '';
+                if ($strForeground) {
+                    $style .= <<< EOF
+#current-installation p {
+  color: #{$strForeground};
+}
+#current-installation p a {
+  color: #{$strForeground};
+}
+EOF;
+                }
+                if ($strBackground) {
+                    $style .= <<< EOF
+div#current-installation {
+  background-color: #{$strBackground};
+}
+EOF;
+                }
+
+                if ($style) {
+                    $style = <<<EOF
+
+<style>
+$style
+</style>
+
+EOF;
+
+                    $strContent = str_replace('</head>', $style . '</head>', $strContent);
+                }
 
                 $strContent = preg_replace('~</div>\s*<div.+id="container"~', $objTemplate->parse()."\n$0", $strContent, 1);
             }
