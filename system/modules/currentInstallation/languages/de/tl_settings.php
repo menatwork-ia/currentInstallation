@@ -12,7 +12,9 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_settings']['currentInstallation'] = array('Installationshinweis', 'Hier können Sie den Installationshinweis eingeben, der am oberen Bildschirmrand angezeigt werden soll.');
+$GLOBALS['TL_LANG']['tl_settings']['currentInstallation']                = array('Installationshinweis', 'Hier können Sie den Installationshinweis eingeben, der am oberen Bildschirmrand angezeigt werden soll.');
+$GLOBALS['TL_LANG']['tl_settings']['currentInstallationForegroundColor'] = array('Textfarbe');
+$GLOBALS['TL_LANG']['tl_settings']['currentInstallationBackgroundColor'] = array('Hintergrundfarbe');
 
 
 /**
